@@ -1,0 +1,47 @@
+@mixin control-backdrop-base {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  will-change: border-color;
+  transition-property: border-color;
+  transition-duration: duration();
+  transition-timing-function: easing();
+}
+
+@mixin control-backdrop($style: 'default', $state: 'base') {
+  @if $style == 'default' {
+    @if $state == 'base' {
+      border-bottom: 1px solid color('black');
+    } @else if $state == 'focused' {
+      border-color: #8FB8E9;
+    } @else if $state == 'disabled' {
+      border-color: #AFAFAF;
+    } @else if $state == 'error' {
+      border-color: #A55454;
+    }
+  } @else if $style == 'border' {
+    @if $state == 'base' {
+      border: 1px solid color('black');
+    } @else if $state == 'focused' {
+      border-color: #8FB8E9;
+    } @else if $state == 'disabled' {
+      border-color: #AFAFAF;
+    } @else if $state == 'error' {
+      border-color: #A55454;
+    }
+  } @else if $style == 'white' {
+    @if $state == 'base' {
+      background: color('white');
+      border: 1px solid transparent;
+      border-radius: border-radius();
+    } @else if $state == 'focused' {
+      border-color: transparent;
+    } @else if $state == 'disabled' {
+      border-color: transparent;
+    } @else if $state == 'error' {
+      border-color: #A55454;
+    }
+  }
+}

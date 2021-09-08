@@ -1,0 +1,168 @@
+@import '../base.scss';
+
+.wrapper {
+  display: flex;
+  padding: 0;
+  // width: calc(100% - 10px);
+  // margin: 5px;
+
+  @include media("<=phone") {
+    flex-direction: column;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  // & > * {
+  //   display: table-cell;
+  //   padding: 30px 15px;
+
+  //   &:not(:first-child) {
+  //     border-left: 1px solid #F2F2F2;
+  //   }
+  // }
+
+  .info {
+    display: table-cell;
+    // width: 210px;
+    flex-grow: 1;
+    padding: 30px 15px;
+
+    // & > * {
+    //   display: inline-block;
+    //   vertical-align: middle;
+    // }
+
+    @include media("<=phone") {
+      padding: 15px;
+    }
+
+    .name {
+      display: inline-block;
+      width: 300px;
+      overflow: hidden;
+
+      // @include media("<=phone") {
+      //   width: 150px;
+      // }
+
+      a {
+        font-weight: bold;
+        font-size: 18px;
+        color: #527AAA;
+      }
+    }
+
+    .timing {
+      font-size: 10px;
+      opacity: 0.5;
+    }
+
+    .options {
+      position: relative;
+      right: unset;
+      top: unset;
+      float: right;
+      // margin-top: 7px;
+
+      & > div > a {
+        &:hover {
+          background-color: #f2f2f2;
+        }
+      }
+      & > div > div {
+        width: 150px;
+        padding: 7px 10px;
+
+        li {
+          padding: 2px 0;
+        }
+
+        .spacer {
+          width: calc(100% + 20px);
+          margin: 5px -10px;
+          border-bottom: 1px solid #000;
+        }
+
+        a {
+          font-weight: normal;
+          font-size: 12px;
+          color: #000;
+        }
+
+        .last {
+          display: block;
+          width: 100%;
+          text-align: center;
+          font-weight: bold;
+          font-size: 10px;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .otherStuff {
+    display: flex;
+
+    & > * {
+      padding: 30px 15px;
+
+      @include media("<=phone") {
+        flex-grow: 1;
+        padding: 15px;
+      }
+    }
+
+    .members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      width: 150px;
+      padding-left: 50px;
+      border-left: 1px solid #F2F2F2;
+
+      @include media("<=phone") {
+        padding-left: 15px;
+        border: 0;
+      }
+
+      a {
+        margin-left: -3px;
+      }
+
+      .memberAvatar {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border: 1px solid #FFFFFF;
+        border-radius: 100%;
+      }
+    }
+
+    .operations {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 120px;
+      border-left: 1px solid #F2F2F2;
+
+      @include media("<=phone") {
+        width: unset;
+        border: 0;
+        align-items: flex-end;
+      }
+
+      a {
+        display: table-cell;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
+      }
+    }
+  }
+
+}

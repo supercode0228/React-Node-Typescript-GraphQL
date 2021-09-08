@@ -1,0 +1,37 @@
+$color-data: (
+  'white': (
+    'base': #ffffff
+  ),
+  'black': (
+    'base': #000000
+  ),
+  'blue': (
+    'base': #527AAA
+  )
+);
+
+@function color($hue, $value: 'base', $for-background: null) {
+  $fetched-color: map-get(map-get($color-data, $hue), $value);
+
+  @if map-has-key($color-data, $fetched-color) {
+    $fetched-color: map-get(map-get($color-data, $fetched-color), $value);
+  }
+
+  @if $for-background != null {
+    $fetched-color: color-multiply($fetched-color, $for-background);
+  }
+
+  @if type-of($fetched-color) == color {
+    @return $fetched-color;
+  } @else {
+    @error 'Color `#{$hue} - #{$value}` not found. Available colors: #{available-names($color-data)}';
+  }
+}
+
+@function color-multiply($foreground, $background: null) {
+  @if $background == null {
+    $background: #ffffff;
+  }
+
+  @return $foreground * $background / 255;
+}

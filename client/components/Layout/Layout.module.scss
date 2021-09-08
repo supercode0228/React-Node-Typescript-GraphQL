@@ -1,0 +1,33 @@
+@import '../../styles/common';
+
+$breakpoint: 768px;
+
+$secondary-basis: layout-width('secondary');
+$primary-basis: layout-width('primary');
+$relative-size: $primary-basis / $secondary-basis;
+
+.Layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: -1 * spacing();
+  margin-left: -1 * spacing();
+
+  @include breakpoint-before($breakpoint) {
+    flex-wrap: wrap;
+  }
+}
+
+.Section {
+  flex: $relative-size $relative-size $primary-basis;
+  margin-top: spacing();
+  margin-left: spacing();
+}
+
+.Section-secondary {
+  flex: 1 1 $secondary-basis;
+
+  @include breakpoint-after($breakpoint) {
+    max-width: $secondary-basis;
+  }
+}

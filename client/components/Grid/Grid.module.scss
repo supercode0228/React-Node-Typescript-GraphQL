@@ -1,0 +1,62 @@
+@import '../../styles/common';
+
+$breakpoint: 768px;
+
+.Grid {
+  display: grid;
+  gap: spacing();
+}
+
+.equalHeight {
+  grid-auto-rows: 1fr;
+}
+
+.keepLayout {
+  &.columnsTwo {
+    grid-template-columns: auto layout-width('secondary');
+
+    @include breakpoint-before($breakpoint) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+.columnsOne {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.columnsTwo {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  @include breakpoint-before($breakpoint) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.columnsThree {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  @include breakpoint-before($breakpoint) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.spacingNone {
+  gap: 0;
+}
+
+.spacingExtraTight {
+  gap: spacing('extra-tight');
+}
+
+.spacingTight {
+  gap: spacing('tight');
+}
+
+.spacingLoose {
+  gap: spacing('loose');
+}
+
+.spacingExtraLoose {
+  gap: spacing('extra-loose');
+}

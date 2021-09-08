@@ -1,0 +1,35 @@
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+
+  &:hover {
+    .btn {
+      // background: #f2f2f2;
+      text-decoration: underline;
+    }
+  }
+}
+
+.btn {
+  // border: 2px solid gray;
+  // color: gray;
+  // background-color: white;
+  // padding: 8px 20px;
+  // border-radius: 8px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #527AAA;
+  border: 0;
+  background: transparent;
+}
+
+.wrapper input[type=file] {
+  width: 100px;
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}

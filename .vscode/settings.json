@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": true,
+  "editor.rulers": [80],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+  "javascript.validate.enable": false,
+  "search.exclude": {
+    "**/.next": true,
+    "**/node_modules": true
+  }
+}

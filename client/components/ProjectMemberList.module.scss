@@ -1,0 +1,80 @@
+.projectMemberList {
+  .member {
+    display: flex;
+    border-radius: 2px;
+    padding-left: 10px;
+    padding-right: 20px;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &:hover,
+    &.selected {
+      background-color: #f2f2f2;
+    }
+
+    & > * {
+      display: table-cell;
+    }
+
+    .avatar {
+      flex-shrink: 0;
+      position: relative;
+      width: 64px;
+      height: 64px;
+      border-radius: 100%;
+
+      .avgAvailability {
+        position: absolute;
+        top: 0%;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #000;
+        border-radius: 100%;
+        background-color: #FFCFCF;
+        transform: translate(-50%, 50%);
+        overflow: hidden;
+
+        .availabilityMeter {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: #B7FEE4;
+        }
+        .percent {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-weight: bold;
+          transform: translate(-50%, -50%);
+          font-size: 10px;
+        }
+      }
+    }
+    .info {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-left: 25px;
+
+      & > * {
+        display: table-cell;
+        // flex-grow: 1;
+      }
+    }
+    .name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .jobTitle {
+      font-size: 10px;
+      color: #5E5E5E;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import '../../styles/common';
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Section + .Section {
+  margin-top: spacing();
+}
+
+.Action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: spacing();
+}

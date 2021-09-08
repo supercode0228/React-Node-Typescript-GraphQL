@@ -1,0 +1,31 @@
+@import '../../styles/common';
+
+.JobExperience {
+  display: flex;
+  background: color('white');
+  border-radius: border-radius('large');
+}
+
+.Workspace {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: spacing('extra-loose') spacing('extra-tight') spacing('extra-loose') spacing();
+}
+
+.Period {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100px;
+  border-left: 1px solid #F2F2F2;
+}
+
+.Time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+
+  + .Time {
+    border-top: 1px solid #F2F2F2;
+  }
+}

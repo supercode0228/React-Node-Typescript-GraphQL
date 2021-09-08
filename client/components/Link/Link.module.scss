@@ -1,0 +1,36 @@
+@import '../../styles/common';
+
+.Link {
+  @include unstyled-button;
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  color: color('blue');
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.destructive {
+  color: #A55454;
+}
+
+.badge {
+  padding: spacing('extra-tight') spacing('tight');
+  background: #f2f2f2;
+  border-radius: border-radius();
+  color: color('black');
+}
+
+.colorBlack {
+  color: color('black');
+}
+
+.colorBlue {
+  color: color('blue');
+}

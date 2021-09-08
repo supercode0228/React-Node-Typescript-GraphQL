@@ -1,0 +1,40 @@
+@import '../../styles/common';
+
+$toggle-small-height: 20px;
+$toggle-large-height: 25px;
+
+.Toggle {
+  display: inline-flex;
+  align-items: center;
+  background: #F2F2F2;
+  border: 1px solid #E0E0E0;
+  overflow: hidden;
+}
+
+.sizeSmall {
+  height: $toggle-small-height;
+  border-radius: $toggle-small-height / 2;
+}
+
+.sizeLarge {
+  height: $toggle-large-height;
+  border-radius: $toggle-large-height / 2;
+}
+
+.Item {
+  @include unstyled-button;
+  height: 100%;
+  padding: 0 spacing('extra-tight');
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+
+  &::-moz-focus-inner {
+    border: none;
+  }
+}
+
+.Item-selected {
+  background: #E0E0E0;
+}

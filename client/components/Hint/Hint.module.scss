@@ -1,0 +1,27 @@
+@import '../../styles/common';
+
+.Hint {
+  position: relative;
+  padding: spacing() spacing('tight');
+  background: #F6E39E;
+  border-radius: border-radius('large');
+}
+
+.Label {
+  position: relative;
+  top: -1 * spacing('tight');
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+.Close {
+  position: absolute;
+  top: spacing('tight');
+  right: spacing('tight');
+}
+
+.Illustration {
+  width: 104px;
+}

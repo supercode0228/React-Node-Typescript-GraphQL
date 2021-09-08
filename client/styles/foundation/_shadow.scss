@@ -1,0 +1,16 @@
+$shadow-data: (
+  'base': (
+    0px 4px 10px rgba(0, 0, 0, 0.25)
+  ),
+  'transparent': 0 0 0 0 transparent
+);
+
+@function shadow($depth: 'base') {
+  $fetched-value: map-get($shadow-data, $depth);
+
+  @if type-of($fetched-value) == list {
+    @return $fetched-value;
+  } @else {
+    @error 'Shadow `#{$depth}` not found. Available variants: #{available-names($shadow-data)}';
+  }
+}

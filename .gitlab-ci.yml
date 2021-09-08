@@ -1,0 +1,113 @@
+image: docker:19.03.5
+
+stages:
+  - build
+  - test
+  - deploy-dev
+  - deploy-master
+  # - integration-test
+
+before_script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+Build:
+  stage: build
+  services:
+    - docker:19.03.5-dind
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:latest || true
+    - docker build --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+
+Test:
+  stage: test
+  services:
+    - docker:19.03.5-dind
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker run --rm $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA yarn jest
+
+
+DeployDev:
+  stage: deploy-dev
+  services:
+    - docker:19.03.5-dind
+  environment:
+    name: dev
+    url: https://staging.Tests.com
+  only:
+    - dev
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
+    - mkdir -p ~/.ssh
+    - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600  ~/.ssh/id_rsa
+
+    # Setup the deployment type
+    - sed -i -e "s/%DEPLOYMENT_TYPE/$CI_COMMIT_REF_NAME/g" ./deployment/docker-compose.yaml
+    # Setup the hostname
+    - sed -i -e "s/%PUBLIC_HOSTNAME/$PUBLIC_HOSTNAME/g" ./deployment/docker-compose.yaml
+    # Setup ActiveCampaign credentials
+    - sed -i -e "s/%ACTIVECAMPAIGN_ACCOUNT/$ACTIVECAMPAIGN_ACCOUNT/g" -e "s/%ACTIVECAMPAIGN_KEY/$ACTIVECAMPAIGN_KEY/g" -e "s/%ACTIVECAMPAIGN_TRACK_ACTID/$ACTIVECAMPAIGN_TRACK_ACTID/g" -e "s/%ACTIVECAMPAIGN_TRACK_KEY/$ACTIVECAMPAIGN_TRACK_KEY/g" ./deployment/docker-compose.yaml
+    # Setup the Google OAuth API credentials
+    - sed -i -e "s/%GOOGLE_OAUTH_KEY/$GOOGLE_OAUTH_KEY/g" -e "s/%GOOGLE_OAUTH_SECRET/$GOOGLE_OAUTH_SECRET/g" ./deployment/docker-compose.yaml
+    # Setup the Google API credentials
+    - sed -i -e "s/%GOOGLE_API_KEY/$GOOGLE_API_KEY/g" ./deployment/docker-compose.yaml
+    # Setup Airbrake credentials
+    - sed -i -e "s/%AIRBRAKE_PROJECT_ID/$AIRBRAKE_PROJECT_ID/g" -e "s/%AIRBRAKE_PROJECT_KEY/$AIRBRAKE_PROJECT_KEY/g" -e "s/%AIRBRAKE_ENVIRONMENT/$AIRBRAKE_ENVIRONMENT/g" ./deployment/docker-compose.yaml
+    # Setup the AWS API credentials
+    - sed -i -e "s/%AWS_REGION/$AWS_REGION/g" -e "s/%AWS_ACCESS_KEY/$AWS_ACCESS_KEY/g" -e "s/%AWS_ACCESS_SECRET/$(echo $AWS_ACCESS_SECRET | sed -e 's/\\/\\\\/g; s/\//\\\//g; s/&/\\\&/g')/g" ./deployment/docker-compose.yaml
+
+    # Upload the fresh `docker-compose.yaml`
+    - scp -r -oStrictHostKeyChecking=no ./deployment ec2-user@$DEPLOYMENT_HOST:~
+    # Start/update the services
+    - ssh -oStrictHostKeyChecking=no ec2-user@$DEPLOYMENT_HOST "chmod -R 777 ./deployment && cd ./deployment && docker-compose pull && docker-compose up -d"
+
+
+DeployMaster:
+  stage: deploy-master
+  services:
+    - docker:19.03.5-dind
+  environment:
+    name: master
+    url: https://app.Tests.com
+  only:
+    - master
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
+    - mkdir -p ~/.ssh
+    - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600  ~/.ssh/id_rsa
+
+    # Setup the deployment type
+    - sed -i -e "s/%DEPLOYMENT_TYPE/$CI_COMMIT_REF_NAME/g" ./deployment/docker-compose.yaml
+    # Setup the hostname
+    - sed -i -e "s/%PUBLIC_HOSTNAME/$PUBLIC_HOSTNAME/g" ./deployment/docker-compose.yaml
+    # Setup ActiveCampaign credentials
+    - sed -i -e "s/%ACTIVECAMPAIGN_ACCOUNT/$ACTIVECAMPAIGN_ACCOUNT/g" -e "s/%ACTIVECAMPAIGN_KEY/$ACTIVECAMPAIGN_KEY/g" -e "s/%ACTIVECAMPAIGN_TRACK_ACTID/$ACTIVECAMPAIGN_TRACK_ACTID/g" -e "s/%ACTIVECAMPAIGN_TRACK_KEY/$ACTIVECAMPAIGN_TRACK_KEY/g" ./deployment/docker-compose.yaml
+    # Setup the Google OAuth API credentials
+    - sed -i -e "s/%GOOGLE_OAUTH_KEY/$GOOGLE_OAUTH_KEY/g" -e "s/%GOOGLE_OAUTH_SECRET/$GOOGLE_OAUTH_SECRET/g" ./deployment/docker-compose.yaml
+    # Setup the Google API credentials
+    - sed -i -e "s/%GOOGLE_API_KEY/$GOOGLE_API_KEY/g" ./deployment/docker-compose.yaml
+    # Setup Airbrake credentials
+    - sed -i -e "s/%AIRBRAKE_PROJECT_ID/$AIRBRAKE_PROJECT_ID/g" -e "s/%AIRBRAKE_PROJECT_KEY/$AIRBRAKE_PROJECT_KEY/g" -e "s/%AIRBRAKE_ENVIRONMENT/$AIRBRAKE_ENVIRONMENT/g" ./deployment/docker-compose.yaml
+    # Setup the AWS API credentials
+    - sed -i -e "s/%AWS_REGION/$AWS_REGION/g" -e "s/%AWS_ACCESS_KEY/$AWS_ACCESS_KEY/g" -e "s/%AWS_ACCESS_SECRET/$(echo $AWS_ACCESS_SECRET | sed -e 's/\\/\\\\/g; s/\//\\\//g; s/&/\\\&/g')/g" ./deployment/docker-compose.yaml
+
+    # Upload the fresh `docker-compose.yaml`
+    - scp -r -oStrictHostKeyChecking=no ./deployment ec2-user@$DEPLOYMENT_HOST:~
+    # Start/update the services
+    - ssh -oStrictHostKeyChecking=no ec2-user@$DEPLOYMENT_HOST "chmod -R 777 ./deployment && cd ./deployment && docker-compose pull && docker-compose up -d"
+
+
+# IntegrationTest:
+#   stage: integration-test
+#   services:
+#     - docker:19.03.5-dind
+#   script:
+#     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+#     - docker run --rm -e DEPLOYMENT_TYPE='$CI_COMMIT_REF_NAME' $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA ./node_modules/.bin/nightwatch

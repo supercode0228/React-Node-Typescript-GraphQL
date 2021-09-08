@@ -1,0 +1,91 @@
+@import '../../styles/common';
+
+.SkillSearch {
+  display: flex;
+  flex-direction: column;
+}
+
+.Section {
+  display: block;
+
+  + .Section {
+    margin-top: spacing();
+  }
+}
+
+.Input {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 spacing('tight');
+  border: 2px solid #000000;
+  border-radius: 100px;
+}
+
+.Element {
+  display: block;
+  flex: 1 1 0%;
+  width: 100%;
+  height: 100% !important;
+  border: none !important;
+  font-size: 18px !important;
+  font-weight: normal;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.Prefix,
+.Suffix {
+  display: block;
+  flex: 0 0 25px;
+
+  img {
+    display: block;
+  }
+}
+
+.Hint {
+  margin-top: spacing('extra-tight');
+  text-align: right;
+}
+
+.Software {
+  display: block;
+  width: 70px;
+  height: 106px;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+
+.SoftwareIconContainer {
+  width: 60px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+  padding-top: 12px;
+  background: #ECECEC;
+  border-radius: 100px;
+}
+
+.SoftwareIcon {
+  width: 36px;
+  height: 36px;
+}
+
+.SoftwareSkillName {
+  width: 100%;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #575757;
+}
+
+.Placeholder {
+  width: 100%;
+}

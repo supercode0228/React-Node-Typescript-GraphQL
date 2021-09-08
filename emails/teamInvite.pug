@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    block head
+      meta(charset="utf-8")
+      meta(name="viewport", content="initial-scale=1.0, width=device-width")
+      meta(http-equiv="X-UA-Compatible", content="IE=edge")
+      meta(name="x-apple-disable-message-reformatting")
+      link(rel="stylesheet", href="style.css", data-inline)
+  body
+    .container
+        .content
+            .logo
+
+            h1 Welcome to Tests
+
+            p
+                | You’ve been invited to join 
+                strong #{teamName}
+            
+            .btn-container
+                a(href=inviteLink)
+                    .btn.no-magrin Join my team
+
+            .inviteImg
+
+        .boring-info
+            div Tests is a skills visualization tool that takes into account your core job focus, soft skills and technical skills to give you and your colleagues a better picture of what engages you.
+            div(style="margin: 30px 0;")
+                a(href="mailto:support@Tests.com") Contact us
+            div Tests is wholly owned by UpStrat Lab AB in Sweden |  Org. nr : 559172-7218

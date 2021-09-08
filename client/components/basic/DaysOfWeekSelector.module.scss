@@ -1,0 +1,35 @@
+.wrapper {
+  padding: 9px 0;
+  padding-right: 8px;
+  background: #fff;
+  border: 1px solid #dbdbdb;
+
+  &.disabled {
+    border: 1px solid transparent;
+    background: transparent;
+
+    .btn {
+      cursor: unset;
+    }
+  }
+}
+
+.btn {
+  float: left;
+  width: 15px;
+  height: 15px;
+  margin-left: 8px;
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+  padding-top: 1px;
+  color: #527AAA;
+  background: #F2F2F2;
+  border-radius: 100%;
+  user-select: none;
+  cursor: pointer;
+
+  &.selected {
+    background: #CFE5FF;
+  }
+}

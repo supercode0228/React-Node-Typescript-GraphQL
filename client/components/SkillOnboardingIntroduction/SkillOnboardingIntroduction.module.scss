@@ -1,0 +1,30 @@
+@import '../../styles/common';
+
+.SkillOnboardingIntroduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  padding: spacing();
+}
+
+.Emotion {
+  font-size: 28px;
+}
+
+.Text {
+  width: 60%;
+  margin: 0 auto;
+  font-size: 18px;
+  text-align: center;
+}
+
+.Image,
+.CustomImage {
+  margin-top: spacing('loose');
+  max-width: 100%;
+}
+
+.CustomImage {
+  width: 200px;
+}

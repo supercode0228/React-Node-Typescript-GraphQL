@@ -1,0 +1,35 @@
+.Radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.RadioActive {
+  background-color: black;
+}
+
+.RadioCircle {
+  border-radius: 50%;
+}
+
+.sizeRadioSmall {
+  width: 18px;
+  height: 18px;
+}
+
+.sizeRadioMedium {
+  width: 24px;
+  height: 24px;
+}
+
+.sizeRadioActiveSmall {
+  width: 10px;
+  height: 10px;
+}
+
+.sizeRadioActiveMedium {
+  width: 16px;
+  height: 16px;
+}

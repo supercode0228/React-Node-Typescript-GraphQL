@@ -1,0 +1,56 @@
+@import '../../styles/common';
+
+.Tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.subdued {
+  opacity: 0.4;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.sizeSmall {
+  height: 12px;
+  padding: 0 spacing('extra-tight');
+  font-size: 10px;
+}
+
+.sizeLarge {
+  height: 25px;
+  padding: 0 spacing('tight');
+  font-size: 14px;
+}
+
+.colorBlack {
+  background: color('black');
+  color: color('white');
+}
+
+.colorGray {
+  background: #F2F2F2;
+  color: color('black');
+}
+
+.colorBlue {
+  background: #CFE5FF;
+  color: color('blue');
+}
+
+.colorYellow {
+  background: #F6E39E;
+  color: color('black');
+}
+
+.shapeSquare {
+  border-radius: 0;
+}
+
+.shapeRounded {
+  border-radius: 100px;
+}

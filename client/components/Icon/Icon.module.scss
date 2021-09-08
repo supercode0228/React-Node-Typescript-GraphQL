@@ -1,0 +1,31 @@
+@import '../../styles/common';
+
+.Icon {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+
+.sizeSmall {
+  width: 10px;
+  height: 10px;
+}
+
+.sizeMedium {
+  width: 20px;
+  height: 20px;
+}
+
+.sizeLarge {
+  width: 24px;
+  height: 24px;
+}
+
+.colorWhite {
+  fill: color('white');
+}
+
+.colorBlack {
+  fill: color('black');
+}

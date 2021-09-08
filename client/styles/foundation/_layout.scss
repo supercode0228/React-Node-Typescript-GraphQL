@@ -1,0 +1,18 @@
+$layout-width-data: (
+  'primary': (
+    'base': 540px
+  ),
+  'secondary': (
+    'base': 330px
+  )
+);
+
+@function layout-width($name, $value: 'base') {
+  $fetched-value: map-get(map-get($layout-width-data, $name), $value);
+
+  @if type-of($fetched-value) != null {
+    @return $fetched-value;
+  } @else {
+    @error 'Layout width `#{$name} - #{$value}` not found. Available layout widths: #{available-names($layout-width-data)}';
+  }
+}

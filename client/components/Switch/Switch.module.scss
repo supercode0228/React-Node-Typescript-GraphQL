@@ -1,0 +1,15 @@
+@import '../../styles/common';
+
+.Switch {
+  border: 1px solid #E0E0E0;
+
+  div:last-of-type {
+    border: 1px solid #666 !important;
+  }
+}
+
+.checked {
+  div:last-of-type {
+    border: 1px solid #45B68D !important;
+  }
+}

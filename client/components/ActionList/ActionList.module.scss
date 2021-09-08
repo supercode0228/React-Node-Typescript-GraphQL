@@ -1,0 +1,107 @@
+@import '../../styles/common';
+
+.ActionList {
+  display: flex;
+  flex-direction: column;
+}
+
+.themePlain {
+  .Item {
+    color: color('black');
+  }
+
+  .Item-active {
+    background: #F2F2F2;
+  }
+}
+
+.themeGreen {
+  .Section {
+    padding: spacing('extra-tight') / 2;
+  }
+
+  .Item {
+    color: #666;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .Item-active {
+    background: #B7FEE4;
+    color: #375E50;
+  }
+}
+
+.themeBlue {
+  background: #CFE5FF;
+
+  .Item {
+    color: color('blue');
+  }
+}
+
+.Section {
+  padding: spacing('tight');
+
+  + .Section {
+    border-top: border();
+  }
+}
+
+.Actions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Item {
+  @include unstyled-button;
+  display: block;
+  width: 100%;
+  padding: spacing('extra-tight');
+  border-radius: border-radius();
+  font-size: 12px;
+  font-weight: normal;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &::-moz-focus-inner {
+    border: none;
+  }
+}
+
+.Item-active {
+  font-weight: bold;
+}
+
+.Item-hidden {
+  display: none;
+}
+
+.Content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.Upgrade {
+  margin-left: spacing('tight');
+  padding: 0 spacing('extra-tight');
+  background: #F3F9FF;
+  border-radius: border-radius('medium');
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: color('blue');
+
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,60 @@
+@import '../../../../styles/common';
+
+.UserMenu {
+  position: relative;
+}
+
+.Activator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 56px;
+  padding: 0 spacing('tight');
+  color: color('white');
+  cursor: pointer;
+
+  &:hover {
+    background: #444;
+  }
+}
+
+.Activator-active {
+  background: #444;
+}
+
+.Content {
+  width: 200px;
+
+  a {
+    font-size: 12px;
+  }
+}
+
+.Header {
+  margin: 0 spacing();
+  padding: spacing('tight') 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.Section {
+  margin: 0 spacing();
+  padding: spacing('tight') 0;
+}
+
+.SectionTitle {
+  margin: spacing('tight') 0;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.Footer {
+  padding: spacing('tight');
+  border-top: border();
+}
+
+.TeamName {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

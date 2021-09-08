@@ -1,0 +1,10 @@
+@import '../../styles/common';
+
+.PersonalNote {
+  padding-top: spacing();
+
+  + .PersonalNote {
+    margin-top: spacing('tight');
+    border-top: 1px solid #E0E0E0;
+  }
+}

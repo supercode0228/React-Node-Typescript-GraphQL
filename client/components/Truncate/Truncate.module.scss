@@ -1,0 +1,8 @@
+@import '../../styles/common';
+
+.Truncate {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

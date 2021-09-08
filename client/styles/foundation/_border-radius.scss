@@ -1,0 +1,15 @@
+$border-radius-data: (
+  'base': 2px,
+  'medium': 4px,
+  'large': 10px
+);
+
+@function border-radius($size: 'base') {
+  $fetched-value: map-get($border-radius-data, $size);
+
+  @if $fetched-value {
+    @return $fetched-value;
+  } @else {
+    @error 'Border radius `#{$size}` not found. Available sizes: #{available-names($border-radius-data)}';
+  }
+}

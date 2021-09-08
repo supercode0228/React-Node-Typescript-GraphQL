@@ -1,0 +1,77 @@
+@import '../../../../styles/common';
+
+$breakpoint: 768px;
+
+.Navigation {
+  display: flex;
+  height: 100%;
+  padding: 0 spacing('extra-loose');
+
+  @include breakpoint-before($breakpoint) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 56px;
+    padding: 0;
+    background: #f2f2f2;
+    z-index: z-index('overlay');
+
+    > .Item {
+      flex: 1 1 auto;
+
+      @supports (min-width: fit-content) {
+        flex: 1 0 0%;
+        min-width: fit-content;
+      }
+    }
+  }
+}
+
+.Item {
+  display: flex;
+  align-items: center;
+  padding: 0 spacing();
+  font-size: 14px;
+  font-weight: normal;
+  color: color('white');
+  text-transform: uppercase;
+
+  @include breakpoint-before($breakpoint) {
+    flex-direction: column;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #AFAFAF;
+    text-transform: none;
+  }
+
+  @include breakpoint-after($breakpoint) {
+    &:hover {
+      background: #444;
+      text-decoration: none;
+    }
+  }
+}
+
+.Item-active {
+  @include breakpoint-before($breakpoint) {
+    color: color('black');
+  }
+
+  @include breakpoint-after($breakpoint) {
+    padding-top: 2px;
+    border-bottom: 2px solid #f2f2f2;
+    font-weight: bold;
+  }
+}
+
+.ItemIcon {
+  @include breakpoint-before($breakpoint) {
+    display: block;
+  }
+
+  @include breakpoint-after($breakpoint) {
+    display: none;
+  }
+}

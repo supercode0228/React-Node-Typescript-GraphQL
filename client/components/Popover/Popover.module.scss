@@ -1,0 +1,26 @@
+@import '../../styles/common';
+
+.Popover {
+  display: block;
+}
+
+.noBorder {
+  .Content {
+    border: none;
+  }
+}
+
+.active {
+  .Content {
+    visibility: visible;
+  }
+}
+
+.Content {
+  background: color('white');
+  border: 1px solid color('black');
+  border-radius: border-radius();
+  box-shadow: shadow();
+  visibility: hidden;
+  z-index: z-index('overlay');
+}

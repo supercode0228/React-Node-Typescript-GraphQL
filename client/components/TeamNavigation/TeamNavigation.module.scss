@@ -1,0 +1,33 @@
+@import '../../styles/common';
+
+.TeamNavigation {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.Item {
+  display: flex;
+  align-items: baseline;
+
+  + .Item {
+    margin-left: spacing();
+  }
+}
+
+.ItemCount {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ItemLabel {
+  white-space: pre-wrap;
+  font-weight: normal;
+  color: #666;
+}
+
+.Invite {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+}

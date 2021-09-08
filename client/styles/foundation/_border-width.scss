@@ -1,0 +1,13 @@
+$border-width-data: (
+  'base': 1px
+);
+
+@function border-width($variant: 'base') {
+  $fetched-value: map-get($border-width-data, $variant);
+
+  @if type-of($fetched-value) == number {
+    @return $fetched-value;
+  } @else {
+    @error 'Border width `#{$variant}` not found. Available variants: #{available-names($border-width-data)}';
+  }
+}

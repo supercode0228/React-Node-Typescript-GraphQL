@@ -1,0 +1,53 @@
+@import '../../styles/common';
+
+.CustomTeamSkillTypeList {
+  display: block;
+}
+
+.Container {
+  margin-bottom: spacing();
+  border-bottom: 1px solid #F2F2F2;
+}
+
+.Item {
+  position: relative;
+  padding: spacing('extra-tight');
+  cursor: pointer;
+
+  + .Item::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: calc(100% - 40px);
+    height: 1px;
+    background: #F2F2F2;
+    content: '';
+  }
+}
+
+.Item-selected > .Content {
+  background: #f2f2f2;
+}
+
+.Content {
+  padding: spacing('tight');
+  border-radius: border-radius('medium');
+}
+
+.FormContainer {
+  padding: 0 spacing('extra-tight');
+}
+
+.Form {
+  padding: spacing('tight');
+  background: #f2f2f2;
+  border: 1px solid color('black');
+  border-radius: 4px;
+}
+
+.Cancel {
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: uppercase;
+}

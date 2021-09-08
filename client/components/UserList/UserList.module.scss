@@ -1,0 +1,63 @@
+@import '../../styles/common';
+
+.UserList {
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  overflow: auto;
+}
+
+.Item {
+  @include unstyled-button;
+  display: block;
+  width: 100%;
+  padding: spacing('tight');
+  border-radius: border-radius();
+  font-size: 12px;
+  font-weight: normal;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #F2F2F2;
+    .Name {
+      font-weight: bold;
+    }
+  }
+
+  &::-moz-focus-inner {
+    border: none;
+  }
+}
+
+.Item-active {
+  background-color: #F2F2F2;
+  .Name {
+    font-weight: bold;
+  }
+}
+
+.Item-hidden {
+  display: none;
+}
+
+.Content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.Right {
+  margin-left: spacing('tight');
+}
+
+.Name {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.JobTitle {
+  font-size: 10px;
+  line-height: 12px;
+}

@@ -1,0 +1,15 @@
+@import '../../styles/common';
+
+.Dot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: color('blue');
+  border-radius: 50%;
+}
+
+.Label {
+  display: block;
+  color: color('blue');
+  cursor: pointer;
+}

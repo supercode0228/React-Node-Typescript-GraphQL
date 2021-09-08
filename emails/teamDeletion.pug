@@ -1,0 +1,48 @@
+doctype html
+html
+  head
+    block head
+      meta(charset="utf-8")
+      meta(name="viewport", content="initial-scale=1.0, width=device-width")
+      meta(http-equiv="X-UA-Compatible", content="IE=edge")
+      meta(name="x-apple-disable-message-reformatting")
+      link(rel="stylesheet", href="style.css", data-inline)
+  body
+    .container
+        .content
+            .logo
+
+            h1 Team deletion
+
+            p
+                | You're about the delete the team 
+                strong #{name}
+                | .
+            p This action is irreversible. Are you sure?
+
+            //- h1 Is this goodbye?
+
+            //- //- a(href=confirmLink) #{confirmLink}
+            //- p 😢 We are really sorry to see you go but please do tell us why you would like to leave
+
+            //- h2 Before you go...
+
+            //- ul
+            //-     li You will lose all your skill data and notes you may have created.
+            //-     li Your colleagues & friends will no longer be able to see all the amazing skills that you possess
+            //-     li
+            //-         | Account deletion is 
+            //-         strong final.
+            //-         |  There will be no way to restore your account.            
+
+            .btn-container.centered
+                a(href=dashboardLink)
+                    .btn Don't delete
+                a(href=confirmLink)
+                    .btn-danger Close & Delete Team
+        
+        .boring-info
+            div Tests is a skills visualization tool that takes into account your core job focus, soft skills and technical skills to give you and your colleagues a better picture of what engages you.
+            div(style="margin: 30px 0;")
+                a(href="mailto:support@Tests.com") Contact us
+            div Tests is wholly owned by UpStrat Lab AB in Sweden |  Org. nr : 559172-7218

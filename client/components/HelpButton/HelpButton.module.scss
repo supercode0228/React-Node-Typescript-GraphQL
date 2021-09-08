@@ -1,0 +1,26 @@
+@import '../../styles/common';
+
+$breakpoint: 768px;
+
+.HelpButton {
+  position: fixed;
+  right: spacing('loose');
+  bottom: spacing('loose');
+  z-index: z-index('overlay');
+
+  @include breakpoint-before($breakpoint) {
+    right: spacing();
+    bottom: 76px;
+  }
+}
+
+.Activator {
+  display: block;
+  width: 30px;
+  height: 30px;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

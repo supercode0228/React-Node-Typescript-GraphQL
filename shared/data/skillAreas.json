@@ -1,0 +1,7 @@
+{
+    "software": { "label": "Software Development" },
+    "marketing": { "label": "Marketing" },
+    "design": { "label": "Design" },
+    "sales": { "label": "Sales & Account Management" },
+    "other": { "label": "Other" }
+}

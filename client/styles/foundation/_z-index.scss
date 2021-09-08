@@ -1,0 +1,14 @@
+$global-elements: (
+  'content': 100,
+  'overlay': 400
+);
+
+@function z-index($element, $context: $global-elements) {
+  $index: map-get($context, $element);
+
+  @if $index {
+    @return $index;
+  } @else {
+    @error 'z-index `#{$element}` in `#{$context}` not found.';
+  }
+}

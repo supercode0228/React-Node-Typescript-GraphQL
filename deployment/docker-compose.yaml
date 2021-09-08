@@ -1,0 +1,88 @@
+version: "3.0"
+services:
+  # Let's encrypt integration
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /etc/nginx/certs:/etc/nginx/certs:ro
+      - /etc/nginx/vhost.d:/etc/nginx/vhost.d
+      - /usr/share/nginx/html:/usr/share/nginx/html
+
+      - /home/ec2-user/deployment/my_proxy.conf:/etc/nginx/conf.d/my_proxy.conf:ro
+      - /home/ec2-user/deployment/htpasswd:/etc/nginx/htpasswd
+    labels:
+      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true"
+    restart: always
+
+  letsencrypt-nginx:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/nginx/certs:/etc/nginx/certs:rw
+      - /etc/nginx/vhost.d:/etc/nginx/vhost.d
+      - /usr/share/nginx/html:/usr/share/nginx/html
+    restart: always
+
+  redis:
+    container_name: tests-redis
+    image: redis:alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    ports:
+      - 6379:6379
+    restart: always
+
+  # Tests services
+  mongo:
+    container_name: ms-mongo
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - 27017:27017
+    restart: always
+
+  tests:
+    container_name: tests
+    image: registry.gitlab.com/tests/tests:latest
+    environment:
+      - NODE_ENV=production
+      - DEPLOYMENT_TYPE=%DEPLOYMENT_TYPE
+
+      - ACTIVECAMPAIGN_ACCOUNT=%ACTIVECAMPAIGN_ACCOUNT
+      - ACTIVECAMPAIGN_KEY=%ACTIVECAMPAIGN_KEY
+      - ACTIVECAMPAIGN_TRACK_ACTID=%ACTIVECAMPAIGN_TRACK_ACTID
+      - ACTIVECAMPAIGN_TRACK_KEY=%ACTIVECAMPAIGN_TRACK_KEY
+
+      - GOOGLE_OAUTH_KEY=%GOOGLE_OAUTH_KEY
+      - GOOGLE_OAUTH_SECRET=%GOOGLE_OAUTH_SECRET
+
+      - GOOGLE_API_KEY=%GOOGLE_API_KEY
+
+      - AIRBRAKE_PROJECT_ID=%AIRBRAKE_PROJECT_ID
+      - AIRBRAKE_PROJECT_KEY=%AIRBRAKE_PROJECT_KEY
+      - AIRBRAKE_ENVIRONMENT=%AIRBRAKE_ENVIRONMENT
+
+      - AWS_REGION=%AWS_REGION
+      - AWS_ACCESS_KEY=%AWS_ACCESS_KEY
+      - AWS_ACCESS_SECRET=%AWS_ACCESS_SECRET
+
+      - VIRTUAL_HOST=%PUBLIC_HOSTNAME
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=%PUBLIC_HOSTNAME
+    volumes:
+      - /data/static:/usr/src/app/public/static
+    # ports:
+    #   - 80:3000
+    restart: always
+
+volumes:
+  redis-data:
+  mongodata:

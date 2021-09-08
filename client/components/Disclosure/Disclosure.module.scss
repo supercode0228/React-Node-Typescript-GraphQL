@@ -1,0 +1,48 @@
+@import '../../styles/common';
+
+.Disclosure {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+
+  &:hover {
+    background: #f2f2f2;
+    text-decoration: none;
+  }
+}
+
+.withLabel {
+  padding-left: spacing('tight');
+}
+
+.sizeExtraSmall {
+  font-size: 10px;
+}
+
+.sizeSmall {
+  font-size: 12px;
+}
+
+.sizeMedium {
+  font-size: 14px;
+}
+
+.sizeLarge {
+  font-size: 16px;
+}
+
+.themePlain {
+  color: color('black');
+}
+
+.themeGreen {
+  background: #B7FEE4;
+  border-radius: border-radius();
+  font-weight: bold;
+  color: #375E50;
+  text-transform: uppercase;
+
+  &:hover {
+    background: #B7FEE4;
+  }
+}

@@ -1,0 +1,35 @@
+.socialLinkListEditor {
+  position: relative;
+
+  .addBtn {
+    position: absolute;
+    right: 0;
+    top: -28px;
+    cursor: pointer;
+  }
+
+  .item {
+    position: relative;
+    padding-left: 34px;
+    margin: 6px 0;
+
+    .brandIcon {
+      position: absolute;
+      left: 0px;
+      top: 1px;
+    }
+
+    input[type='text'] {
+      height: 24px;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.01em;
+      color: #333333;
+      padding-right: 20px;
+    }
+
+    .remove {
+      cursor: pointer;
+    }
+  }
+}

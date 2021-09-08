@@ -1,0 +1,42 @@
+@import '../../styles/common';
+
+.TeamSettingsNavigation {
+  display: flex;
+  flex-direction: column;
+  padding: spacing();
+  background: color('white');
+  border-radius: border-radius('large');
+}
+
+.Item {
+  display: flex;
+  align-items: center;
+  padding: spacing('extra-tight') spacing('tight');
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.Item-active {
+  background: #F2F2F2;
+
+  .Icon {
+    background: color('white');
+  }
+}
+
+.Icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #F2F2F2;
+}
+
+.Content {
+  margin-left: spacing();
+  font-weight: bold;
+}

@@ -1,0 +1,26 @@
+@import '../../styles/common';
+
+$breakpoint: 768px;
+
+.TopBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  padding: 0 spacing() 0 spacing('extra-loose');
+  background: color('black');
+
+  @include breakpoint-before($breakpoint) {
+    padding: 0 spacing() 0 spacing();
+  }
+}
+
+.Logo {
+  display: block;
+}
+
+.Controls {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+}

@@ -1,0 +1,37 @@
+@import '../../styles/common';
+
+.TextStyle {
+  display: block;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.subdued {
+  color: #666;
+}
+
+.sizeExtraSmall {
+  font-size: 10px;
+}
+
+.sizeSmall {
+  font-size: 12px;
+}
+
+.sizeMedium {
+  font-size: 14px;
+}
+
+.sizeLarge {
+  font-size: 16px;
+}
+
+.colorBlack {
+  color: color('black');
+}
+
+.colorBlue {
+  color: color('blue');
+}

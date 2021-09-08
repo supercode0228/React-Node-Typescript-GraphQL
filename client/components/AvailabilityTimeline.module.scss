@@ -1,0 +1,208 @@
+@import '../base.scss';
+
+.availabilityTimeline {
+  position: relative;
+  width: 100%;
+  $height: 90px;
+  height: $height;
+
+  $axis-height: 60px;
+  $padding: 30px;
+  $mobile-padding: 15px;
+
+  & > * {
+    position: absolute;
+  }
+
+  // &:hover {
+  //   .date {
+  //     &.first:not(:hover),
+  //     &.today {
+  //       opacity: 0;
+  //     }
+  //   }
+  // }
+
+  .inner {
+    left: $padding;
+    right: $padding;
+    bottom: $axis-height;
+    height: $height - $axis-height;
+
+    @include media("<=phone") {
+      left: $mobile-padding;
+      right: $mobile-padding;
+    }
+    
+    & > * {
+      position: absolute;
+    }
+  }
+
+  .axis {
+    left: 0;
+    right: 0;
+    bottom: -0.5px;
+    height: 0;
+    border-bottom: 1px solid #000000;
+  }
+
+  .startMarker {
+    left: 0;
+    bottom: 0;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 100%;
+    transform: translate(-50%, 50%);
+  }
+
+  .endMarker {
+    right: 0;
+    bottom: 0;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 100%;
+    transform: translate(50%, 50%);
+  }
+
+  .availabilityContainer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+    
+    & > * {
+      position: absolute;
+    }
+
+    .available {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(360deg, #B7FEE4 0%, rgba(183, 254, 228, 0) 100%);
+    }
+  
+    .unavailable {
+      top: 0;
+      height: 100%;
+      background: #FFCFCF;
+    }
+  }
+
+  .date {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    // height: 90px;
+    bottom: -50px;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.first {
+      opacity: 1;
+
+      &:not(:hover) {
+        .name-hint {
+          opacity: 0;
+        }
+      }
+    }
+
+    &.start {
+      left: 0;
+    }
+    &.end {
+      right: 0;
+    }
+    
+    .today {
+      color: #AFAFAF;
+    }
+  }
+
+  .startLine {
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 28px;
+    border-left: 1px dashed #000000;
+    transform: translate(0, 100%);
+  }
+
+  .period {
+    bottom: 0;
+    height: 12px;
+    background: #000000;
+    border-radius: 2px;
+    transform: translate(0, 50%);
+
+    & > * {
+      position: absolute;
+    }
+    .startLine {
+      height: 14px;
+    }
+    .startMarker {
+      left: 0;
+      bottom: 1px;
+      width: 5px;
+      height: 5px;
+      border-radius: 100%;
+      background: #000;
+      border: 1px solid #fff;
+      transform: translate(-50%, -50%);
+    }
+    .date {
+      bottom: -30px;
+    }
+
+    .handle {
+      top: 2px;
+      bottom: 2px;
+
+      &.left {
+        left: 4px;
+      }
+      &.right {
+        right: 4px;
+      }
+      
+      & > * {
+        float: left;
+      }
+
+      .bar {
+        width: 0px;
+        height: 100%;
+        border-left: 1px solid #F2F2F2;
+
+        &:not(:first-child) {
+          margin-left: 2px;
+        }
+      }
+    }
+  }
+
+  &.wide {
+    .inner {
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &.low {
+    .availabilityContainer {
+      height: 20px;
+    }
+    .date {
+      bottom: -60px;
+    }
+  }
+}

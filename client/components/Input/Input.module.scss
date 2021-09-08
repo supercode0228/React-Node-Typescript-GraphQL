@@ -1,0 +1,173 @@
+@import '../../styles/common';
+
+$addon-spacing: 0.25em;
+
+$stacking-order: (
+  'contents': 20,
+  'backdrop': 10
+);
+
+.Input {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  color: color('black');
+  cursor: text;
+}
+
+.appearanceDefault {
+  padding: spacing('extra-tight') 0;
+
+  &.disabled {
+    color: #AFAFAF;
+    cursor: initial;
+
+    > .Backdrop {
+      @include control-backdrop('default', 'disabled');
+    }
+  }
+
+  &.error > .Backdrop {
+    @include control-backdrop('default', 'error');
+  }
+
+  > .Element:focus ~ .Backdrop {
+    @include control-backdrop('default', 'focused');
+  }
+
+  > .Backdrop {
+    @include control-backdrop('default');
+  }
+}
+
+.appearanceBorder {
+  padding: 0 spacing('tight');
+
+  &.disabled {
+    color: #AFAFAF;
+    cursor: initial;
+
+    > .Backdrop {
+      @include control-backdrop('border', 'disabled');
+    }
+  }
+
+  &.error > .Backdrop {
+    @include control-backdrop('border', 'error');
+  }
+
+  > .Element:focus ~ .Backdrop {
+    @include control-backdrop('border', 'focused');
+  }
+
+  > .Backdrop {
+    @include control-backdrop('border');
+  }
+}
+
+.appearanceWhite {
+  padding: spacing('extra-tight') spacing('tight');
+
+  &.disabled {
+    color: #AFAFAF;
+    cursor: initial;
+
+    > .Backdrop {
+      @include control-backdrop('white', 'disabled');
+    }
+  }
+
+  &.error > .Backdrop {
+    @include control-backdrop('white', 'error');
+  }
+
+  > .Element:focus ~ .Backdrop {
+    @include control-backdrop('white', 'focused');
+  }
+
+  > .Backdrop {
+    @include control-backdrop('white');
+  }
+}
+
+.sizeSubheading > .Element {
+  font-size: 18px !important;
+  font-weight: 900;
+}
+
+.sizeTitle > .Element {
+  font-size: 26px !important;
+  font-weight: 900;
+}
+
+.Element {
+  position: relative;
+  z-index: z-index('contents', $stacking-order);
+  display: block;
+  flex: 1 1 0%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none !important;
+  font-size: 14px !important;
+  font-weight: normal;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  // Remove the box shadow in Firefox when the input is invalid
+  &:invalid {
+    box-shadow: none;
+  }
+
+  &::placeholder {
+    color: #666666;
+  }
+
+  // These properties are used to remove the default "spinner" controls
+  // for number fields, since we add our own, custom versions instead.
+  &[type='number'] {
+    appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+.Element-multiline {
+  min-height: 100px;
+  overflow: auto;
+  resize: none;
+}
+
+.Prefix {
+  position: relative;
+  z-index: z-index('contents', $stacking-order);
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 1 auto;
+  margin: 0 $addon-spacing 0 0;
+  color: currentColor;
+}
+
+.Suffix {
+  position: relative;
+  z-index: z-index('contents', $stacking-order);
+  flex: 0 0 auto;
+  margin: 0 0 0 $addon-spacing;
+  color: currentColor;
+}
+
+.Backdrop {
+  @include control-backdrop-base;
+  z-index: z-index('backdrop', $stacking-order);
+}

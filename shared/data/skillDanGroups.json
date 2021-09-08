@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Beginner",
+        "skillLevels": [ 0, 1, 2 ]
+    },
+    {
+        "name": "Intermediate",
+        "skillLevels": [ 3, 4, 5 ]
+    },
+    {
+        "name": "Expert",
+        "skillLevels": [ 6, 7, 8 ]
+    }
+]

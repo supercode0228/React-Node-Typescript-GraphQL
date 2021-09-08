@@ -1,0 +1,104 @@
+[
+  {
+    "label": "Job Focus",
+    "labelSingular": "Job Focus",
+    "tileLabel": "Job Focus",
+    "pinnedTitle": "My Job Focus",
+    "value": "job",
+    "visualization": "bubbles",
+    "emotion": "🤓",
+    "introduction": "We all know you do more than just what your <strong>Job Title</strong> states. Tell us instead what your <strong>Job Focus</strong> is.<br/><br/>Don’t worry this will go really fast",
+    "definition": "We like to define it as the stuff that you know well and <strong>enjoy</strong> working with.",
+    "emptyDefinition": "Job Focus hasn’t been set by them yet.",
+    "examples": {
+      "design": [
+        { "id": "", "name": "Digital Product Design", "type": "" },
+        { "id": "", "name": "Industrial Design", "type": "" },
+        { "id": "", "name": "Animation", "type": "" },
+        { "id": "", "name": "Website Design", "type": "" },
+        { "id": "", "name": "Interaction Design", "type": "" },
+        { "id": "", "name": "Usability testing", "type": "" }
+      ],
+      "software": [
+        { "id": "", "name": "Software Programming", "type": "" },
+        { "id": "", "name": "Data Modelling", "type": "" },
+        { "id": "", "name": "App development", "type": "" },
+        { "id": "", "name": "ML-AI", "type": "" },
+        { "id": "", "name": "Sales Engineering", "type": "" },
+        { "id": "", "name": "Object Oriented Design", "type": "" }
+      ],
+      "marketing": [
+        { "id": "", "name": "Channel Marketing", "type": "" },
+        { "id": "", "name": "SEO Analytics", "type": "" },
+        { "id": "", "name": "Digital Strategy", "type": "" },
+        { "id": "", "name": "Customer Segmentation", "type": "" },
+        { "id": "", "name": "Online Marketing", "type": "" },
+        { "id": "", "name": "Value Proposition Design", "type": "" }
+      ],
+      "sales": [
+        { "id": "", "name": "Account Management", "type": "" },
+        { "id": "", "name": "Business Development", "type": "" },
+        { "id": "", "name": "Sales Coaching", "type": "" },
+        { "id": "", "name": "Client Development", "type": "" },
+        { "id": "", "name": "Business Analysis", "type": "" },
+        { "id": "", "name": "Partner Sales", "type": "" }
+      ],
+      "other": [
+        { "id": "", "name": "People Management", "type": "" },
+        { "id": "", "name": "Public Speaking", "type": "" },
+        { "id": "", "name": "Operations", "type": "" },
+        { "id": "", "name": "Resource Management", "type": "" },
+        { "id": "", "name": "Journalism", "type": "" },
+        { "id": "", "name": "Voice overs", "type": "" }
+      ]
+    }
+  },
+  {
+    "label": "Soft Skills",
+    "labelSingular": "Soft Skill",
+    "tileLabel": "Soft Skills",
+    "pinnedTitle": "My Soft Skills",
+    "value": "soft",
+    "visualization": "bubbles",
+    "emotion": "🌟",
+    "introduction": "These skills are special to you. Let everyone understand what makes you unique.",
+    "definition": "These are your personal attributes that help you succeed at your job.",
+    "emptyDefinition": "Looks like they haven’t updated any soft skills yet.  😢",
+    "examples": {
+      "other": [
+        { "id": "", "name": "Problem solving", "type": "" },
+        { "id": "", "name": "Leadership", "type": "" },
+        { "id": "", "name": "Creative Problem Solver", "type": "" },
+        { "id": "", "name": "Willingness to learn", "type": "" },
+        { "id": "", "name": "Self propelled", "type": "" },
+        { "id": "", "name": "Empathy", "type": "" }
+      ]
+    }
+  },
+  {
+    "label": "Technical Skills",
+    "labelSingular": "Technical Skill",
+    "tileLabel": "Technical Skills",
+    "pinnedTitle": "Technical tools I work with",
+    "value": "software",
+    "visualization": "sector",
+    "emotion": "🛠",
+    "introduction": "What technical tools do you use to successfully complete your work? Create your own visualization.",
+    "definition": "This is all the technical knowledge you have that enables you to successfully complete a job.",
+    "emptyDefinition": "Once they has added technical skills you will be able to see it here.",
+    "examples": {
+      "other": [
+        { "id": "", "name": "Figma", "type": "" },
+        { "id": "", "name": "Mailchimp", "type": "" },
+        { "id": "", "name": "Unity", "type": "" },
+        { "id": "", "name": "Adobe Illustrator", "type": "" },
+        { "id": "", "name": "ReactJS", "type": "" },
+        { "id": "", "name": "Hubspot", "type": "" },
+        { "id": "", "name": "Blender", "type": "" },
+        { "id": "", "name": "Jira", "type": "" },
+        { "id": "", "name": "Webflow", "type": "" },
+        { "id": "", "name": "Rust", "type": "" }
+      ]
+    }
+  }
+]

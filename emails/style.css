@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.container {
+  position: relative;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 30px;
+  background: #fff;
+}
+
+.content {
+  padding: 50px;
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+a {
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline !important;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.logo {
+  width: 224px;
+  height: 33px;
+  background-image: url('https://app.Tests.com/img/email-logo.png');
+  background-size: contain;
+}
+.inviteImg {
+  width: 600px;
+  height: 349px;
+  background-image: url('https://app.Tests.com/img/email-invite.png');
+  background-size: contain;
+}
+
+h1 {
+  margin-top: 90px;
+  margin-bottom: 20px;
+  font-weight: 900;
+  font-size: 40px;
+}
+h2 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+ul {
+  list-style-position: inside;
+  padding-left: 0;
+}
+ul li {
+  margin: 15px 0;
+}
+
+.btn-container {
+  display: block;
+  width: fit-content;
+  margin: 35px 0;
+}
+
+.btn-container.centered {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.btn,
+.btn-confirm,
+.btn-danger {
+  display: inline-block;
+  padding: 14px 40px;
+  margin: 0 10px;
+  border-radius: 100px;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none !important;
+}
+
+.btn {
+  background: #000000;
+  color: #F2F2F2;
+}
+.btn-confirm {
+  background: #CFE5FF;
+  color: #527AAA;
+}
+.btn-danger {
+  background: #E4AAAA;
+  color: #A55454;
+}
+
+.boring-info {
+  padding: 50px 85px;
+  padding-bottom: 20px;
+  background: #F2F2F2;
+  font-weight: normal;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #666666;
+}
+
+.boring-info a {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100% !important;
+    padding: 40px 10px !important;
+  }
+
+  .content {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .boring-info {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .btn,
+  .btn-confirm {
+    display: block !important;
+    width: fit-content !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 20px !important;
+  }
+}

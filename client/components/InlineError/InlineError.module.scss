@@ -1,0 +1,8 @@
+@import '../../styles/common';
+
+.InlineError {
+  display: flex;
+  margin-top: spacing('extra-tight');
+  font-size: 14px;
+  color: #A55454;
+}

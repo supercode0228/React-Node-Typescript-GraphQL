@@ -1,0 +1,47 @@
+$default-browser-font-size: 16px;
+$base-font-size: 10px;
+
+@function em($value) {
+  $unit: unit($value);
+
+  @if $value == 0 {
+    @return 0;
+  } @else if $unit == 'em' {
+    @return $value;
+  } @else if $unit == 'rem' {
+    @return $value / 1rem * 1em * ($base-font-size / $default-browser-font-size);
+  } @else if $unit == 'px' {
+    @return $value / $default-browser-font-size * 1em;
+  } @else {
+    @error 'Value must be in px, rem, or em.';
+  }
+}
+
+@function available-names($map, $level: 1) {
+  @if type-of($map) != 'map' {
+    @return null;
+  }
+
+  $output: '';
+  $newline: '\A ';
+
+  @if $level == 1 {
+    @each $key, $value in $map {
+      $output: $output +
+        '#{$newline}- #{$key} #{available-names($value, $level + 1)}';
+    }
+  } @else {
+    $output: '(';
+    $i: 1;
+
+    @each $key, $value in $map {
+      $sep: if($i < length($map), ', ', '');
+      $output: $output + '#{$key}#{$sep}#{available-names($value, $level + 1)}';
+      $i: $i + 1;
+    }
+
+    $output: $output + ')';
+  }
+
+  @return $output;
+}

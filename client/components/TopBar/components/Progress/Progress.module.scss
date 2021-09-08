@@ -1,0 +1,76 @@
+@import '../../../../styles/common';
+
+$breakpoint: 768px;
+
+.Progress {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  height: 56px;
+  padding: 0 spacing();
+  font-size: 14px;
+  font-weight: bold;
+  color: color('white');
+  cursor: pointer;
+
+  &:hover {
+    background: #444;
+  }
+
+  @include breakpoint-before($breakpoint) {
+    display: none;
+  }
+}
+
+.active {
+  background: #444;
+}
+
+.Bar {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  margin-top: spacing('extra-tight');
+  background: #666666;
+
+  > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #4CEAB1;
+  }
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: 0 spacing();
+  padding: spacing() 0;
+}
+
+.Summary {
+  margin-bottom: spacing('extra-tight');
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+}
+
+.Step {
+  padding: spacing('tight') 0;
+
+  a {
+    font-size: 12px;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.Step + .Step {
+  border-top: 1px solid #E0E0E0;
+}

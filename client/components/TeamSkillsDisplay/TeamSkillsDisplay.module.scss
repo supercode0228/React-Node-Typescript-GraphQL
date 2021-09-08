@@ -1,0 +1,28 @@
+@import '../../styles/common';
+
+.TeamSkillsDisplay {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: color('white');
+  border-radius: border-radius('large');
+}
+
+.Header {
+  position: absolute;
+  width: 100%;
+  padding: spacing();
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 120px spacing() 60px;
+}
+
+.Toggle {
+  position: absolute;
+  right: spacing();
+  bottom: spacing();
+}

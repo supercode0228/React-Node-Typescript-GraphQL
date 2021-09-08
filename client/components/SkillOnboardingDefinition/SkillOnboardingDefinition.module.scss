@@ -1,0 +1,16 @@
+@import '../../styles/common';
+
+.SkillOnboardingDefinition {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  padding: spacing();
+}
+
+.Text {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: center;
+}

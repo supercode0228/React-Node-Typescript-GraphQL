@@ -1,0 +1,23 @@
+{
+  "src_folders" : ["tests"],
+  "custom_commands_path" : "./tests/custom-commands",
+  "custom_assertions_path" : "./tests/custom-assertions",
+  "exclude" : ["./tests/custom-commands", "./tests/custom-assertions"],
+
+  "webdriver" : {
+    "start_process": true,
+    "server_path": "./chromedriver.exe",
+    "port": 9515
+  },
+
+  "test_settings" : {
+    "default" : {
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "chromeOptions" : {
+          "args" : ["window-size=1366,768"]
+        }
+      }
+    }
+  }
+}

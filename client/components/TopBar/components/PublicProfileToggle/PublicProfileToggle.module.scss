@@ -1,0 +1,89 @@
+@import '../../../../styles/common';
+
+.PublicProfileToggle {
+  position: relative;
+  margin-left: spacing();
+}
+
+.Activator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 56px;
+  padding: 0 spacing('tight');
+  color: color('white');
+  cursor: pointer;
+
+  &:hover {
+    background: #444;
+  }
+}
+
+.Activator-active {
+  background: #444;
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  padding: spacing();
+  font-size: 14px;
+}
+
+.Label {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: spacing('tight');
+  border-bottom: 1px solid #E0E0E0;
+  font-weight: bold;
+  color: #333;
+}
+
+.Warning {
+  display: flex;
+  flex-direction: column;
+  margin-top: spacing('extra-tight');
+  font-size: 10px;
+  color: #A55454;
+
+  a {
+    font-size: 10px;
+    color: #527AAA;
+  }
+}
+
+.Tag {
+  padding: spacing('extra-tight');
+  background: #F2F2F2;
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: uppercase;
+  user-select: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.Tag-active {
+  background: #CFE5FF;
+  color: #527AAA;
+}
+
+.Share {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ShareBox {
+  display: flex;
+  align-items: center;
+  padding: spacing('extra-tight');
+  border: 1px solid #E0E0E0;
+  border-radius: border-radius();
+
+  img {
+    display: block;
+  }
+}
